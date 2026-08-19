@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shaka Plumbing — AI Receptionist (Internal Demo)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+    <div class="top-banner">Internal test build — Shaka Tech team only. Not for customer traffic.</div>
+
+    <div class="brand-header">
+        <div class="brand-header__avatar">🚰</div>
+        <div>
+            <div class="brand-header__title">Shaka Plumbing — AI Receptionist</div>
+            <div class="brand-header__subtitle">Powered by Shaka AI (Claude Haiku 4.5) · fictional business, real conversation</div>
+        </div>
+    </div>
+
+    <div class="chat-panel">
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-input-row">
+            <input id="chatInput" type="text" placeholder="Type a message…" autocomplete="off">
+            <button id="chatSend">Send</button>
+        </div>
+    </div>
+
+    <div class="debug-panel">
+        <span id="statusText">Ready</span>
+        <button id="debugToggle">Show usage debug</button>
+        <div class="debug-panel__stats" id="debugStats">
+            <span id="debugMessages">turns: 0</span>
+            <span id="debugTokens">tokens: 0 in / 0 out</span>
+        </div>
+    </div>
+</div>
+
+<script src="chat.js"></script>
+</body>
+</html>

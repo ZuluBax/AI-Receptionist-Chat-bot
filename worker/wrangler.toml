@@ -1,0 +1,26 @@
+name = "shaka-plumbing-ai"
+main = "src/index.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+MODEL = "claude-haiku-4-5"
+ALLOWED_ORIGIN = "*"
+RATE_LIMIT_WINDOW_MINUTES = "60"
+RATE_LIMIT_MAX_REQUESTS = "100"
+# Circuit breaker on total tokens processed per day (input+output+cache),
+# not dollars — this project doesn't assume any provider's pricing. 2M is
+# generous headroom for a week of manual testing; tighten if you want a
+# tripwire for a runaway loop rather than a real spend cap.
+DAILY_TOKEN_CAP = "2000000"
+# How far ahead customers can book. Must be 30, 60, or 90 — anything else
+# silently falls back to 30 (see worker/src/booking.js).
+BOOKING_HORIZON_DAYS = "30"
+
+# Create with: wrangler kv namespace create SHAKA_KV
+# Then replace the id below with the one it prints.
+[[kv_namespaces]]
+binding = "SHAKA_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Set the real secret with: wrangler secret put ANTHROPIC_API_KEY
+# Never put the API key itself in this file.
